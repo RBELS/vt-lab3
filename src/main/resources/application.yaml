@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    user: postgres
+    password: postgrespw
+    driver-class-name: org.postgresql.Driver
