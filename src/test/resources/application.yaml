@@ -1,9 +1,9 @@
 spring:
   datasource:
-    user: postgres
-    password: postgrespw
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:32768/EShopDB
+    user: test
+    password: test
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:EShopDB;DB_CLOSE_DELAY=-1
   security:
     oauth2:
       resourceserver:

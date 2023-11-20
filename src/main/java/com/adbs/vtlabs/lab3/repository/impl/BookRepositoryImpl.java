@@ -48,7 +48,12 @@ public class BookRepositoryImpl implements BookRepository {
     @Override
     public void delete(BookEntity bookEntity) {
         try (EntityManager entityManager = entityManagerFactory.createEntityManager()){
-            entityManager.remove(bookEntity);
+            EntityTransaction transaction = entityManager.getTransaction();
+            transaction.begin();
+            entityManager.remove(
+                    entityManager.merge(bookEntity)
+            );
+            transaction.commit();
         }
     }
 }

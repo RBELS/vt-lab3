@@ -3,6 +3,7 @@ package com.adbs.vtlabs.lab3.controller;
 import com.adbs.vtlabs.api.books.controllers.BookApi;
 import com.adbs.vtlabs.api.books.controllers.models.Book;
 import com.adbs.vtlabs.api.books.controllers.models.BookExtended;
+import com.adbs.vtlabs.lab3.config.ErrorMessageConfigurationProperties;
 import com.adbs.vtlabs.lab3.service.BookService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ import java.util.List;
 public class BookApiImpl implements BookApi {
     private final BookService bookService;
     private final ModelMapper modelMapper;
+    private final ErrorMessageConfigurationProperties errorMessageConfigurationProperties;
 
     @Override
     public ResponseEntity<List<BookExtended>> booksGet() {

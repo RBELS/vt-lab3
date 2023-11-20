@@ -1,15 +1,16 @@
 package com.adbs.vtlabs.lab3.service.impl;
 
+import com.adbs.vtlabs.lab3.exception.ServiceException;
 import com.adbs.vtlabs.lab3.model.service.Book;
 import com.adbs.vtlabs.lab3.service.BookService;
 import com.adbs.vtlabs.lab3.storage.BookStorage;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+
+import static com.adbs.vtlabs.lab3.exception.ErrorCode.*;
 
 @Service
 @RequiredArgsConstructor
@@ -25,7 +26,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public Book getBookById(Long bookId) {
         return bookStorage.findById(bookId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new ServiceException(BOOK_NOT_FOUND));
     }
 
     @Override

@@ -9,23 +9,22 @@ import java.math.BigDecimal;
 @Entity
 @Data
 @Accessors(chain = true)
-@Table(name = "`BOOK`")
+@Table(name = "`book`")
 public class BookEntity {
     @Id
-    @GeneratedValue(generator = "book_seq")
-    @SequenceGenerator(name = "book_seq", sequenceName = "book_seq", allocationSize = 1)
-    @Column(name = "BOOK_ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "book_id")
     private Long bookId;
 
-    @Column(name = "NAME", length = 256)
+    @Column(name = "name", length = 256)
     private String name;
 
-    @Column(name = "AUTHOR", length = 256)
+    @Column(name = "author", length = 256)
     private String author;
 
-    @Column(name = "PRICE")
+    @Column(name = "price")
     private BigDecimal price;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "description")
     private String description;
 }
